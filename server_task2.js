@@ -12,8 +12,13 @@ var server = http.createServer(function(req, res) {
         let fileUrl = req.url;
         if (fileUrl === '/') {
             fileUrl = '/home.html';
+        } else if (fileUrl === '/about') {
+            fileUrl = '/about.html';
+        } else if (fileUrl === '/contact') {
+            fileUrl = '/contact.html';
         }
-        const filePath = path.resolve('./public' + fileUrl);
+        
+        const filePath = path.resolve('.' + fileUrl);
         const fileExt = path.extname(filePath);
 
         if (fileExt === '.html') {
